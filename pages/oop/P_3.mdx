@@ -1,0 +1,199 @@
+# Practical_3 😶‍🌫️
+
+#### 1 WAP to type casting to get a random integer.  
+
+```java filename="P3_1.java" copy
+public class P3_1 {
+        public static void main(String[] args) {
+            double number;
+            number = (Math.random());
+            int n=(int) (number*6);
+System.out.println("Random number is :" + n);
+        }
+    }
+```
+
+#### 2 WAP to show use of implicit and explicit typecasting
+
+```java filename="P3_2.java" copy
+public class P3_2{
+    public static void main(String[] args) {
+System.out.println("Implicite type cast:\n");
+        int x = 100;
+        double y = x;
+System.out.println("Before type cast " + x);
+System.out.println("After type cast " + y);
+System.out.println("\n Explicite type cast\n");
+        float a = 200.1920f;
+        int b = (int) a;
+System.out.println("Before type cast " + a);
+System.out.println("After type cast " + b);
+    }
+}
+```
+
+#### 3 WAP to find maximum and minimum of two numbers using conditional operator. 
+
+```java filename="P3_3.java" copy
+public class P3_3 {
+    public static void main(String[] args) {
+        int a = 200;
+        int b = 500;
+        int result = (a < b) ? a : b;
+System.out.println(result + " is a minimum value");
+        result = (a > b) ? a : b;
+System.out.println(result + " is a maximum value");
+    }
+}
+```
+
+#### 4 WAP to accept three values from user using scanner class and find highest &lowest  value from given three values.  
+
+```java filename="P3_4.java" copy
+import java.util.Scanner;
+public class P3_4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+System.out.println("Enter value of a,b and c: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        if (a > b && a > c) {
+System.out.println("Greater value is : " + a);
+        } else if (b > a && b > c) {
+System.out.println("Greater value is : " + b);
+        } else if (c > a && c > b) {
+System.out.println("Greater value is : " + c);
+        } else {
+System.out.println("Error");
+        }
+        if (a < b && a < c) {
+System.out.println("Lesser value is : " + a);
+        } else if (b < a && b < c) {
+System.out.println("Lesser value is : " + b);
+        } else if (c < a && c < b) {
+System.out.println("Lesser value is : " + c);
+        } else {
+System.out.println("Error");
+        }
+    }
+}
+```
+
+#### 5 Declare an int variable i initialize it to 4, and then test the following increment and  decrement statements. Comment on the obtained output.  
+
+```java filename="P3_5.java" copy
+public class P3_5 {
+public static void main(String[] args) {
+int i = 4; System.out.println("++i = " + ++i);
+System.out.println("i = " + i);
+System.out.println("i++ = " + i++);
+System.out.println("i = " + i);
+System.out.println("--i = " + --i);
+System.out.println("i = " + i);
+System.out.println("i-- = " + i--);
+System.out.println("i = " + i);
+}
+}
+```
+
+#### 6 . WAP to initialize the three variables x = 9, y = 2.3, and z = 5.2. Display the result of  each of the following arithmetic expressions using a System.out.println ( ) statement. In  the Interpretation column, find out the precedence rules discussed in the lecture.  
+
+```java filename="P3_6.java" copy
+public class P3_6 {
+    public static void main(String[] args) {
+        int x = 9;
+        float y = 2.3f, z = 5.2f;
+System.out.println("x + y * z = " + (x + y * z));
+System.out.println("x / y * z = " + x / y * z);
+System.out.println("x / 2 + y / 2 = " + (x / 2 + y / 2));
+System.out.println("x % 5 * 3 + 1 = " + x % 5 * 3 + 1);
+System.out.println("(y + 3) * 2 = " + (y + 3) * 2);
+System.out.println("z / (1 + 1) = " + z / (1 + 1));
+    }
+}
+```
+
+#### 7 WAP to print the appropriate message according to the average Marks: (Note: Using Switch case) 
+
+```java filename="P2_7.java" copy
+import java.util.Scanner;
+public class P3_7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+System.out.print("Enter your marks : ");
+        int marks = sc.nextInt();
+        switch (marks / 10) {
+            case 9:
+System.out.println("You got A+ grade");
+                break;
+            case 8:
+System.out.println("You got A grade");
+                break;
+            case 7:
+System.out.println("You got B+ grade");
+                break;
+            case 6:
+System.out.println("You got B grade");
+                break;
+            case 5:
+System.out.println("You got C+ grade");
+                break;
+            case 4:
+System.out.println("You got C grade");
+                break;
+            case 3:
+System.out.println("You got F grade");
+                break;
+  }
+    }
+}
+```
+
+#### 8 WAP of interactive user input to guess a number. 
+
+```java filename="P3_8.java" copy
+import java.util.Random;
+import java.util.Scanner;
+public class P3_8 {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int rand_num = rand.nextInt(100);
+        Scanner sc = new Scanner(System.in);
+        int guess = 0;
+        int count = 0;
+        while (guess != rand_num) {
+System.out.println("Enter guessed number : ");
+            guess = sc.nextInt();
+            if (guess >rand_num) {
+System.out.println("Too high");
+            } else if (guess <rand_num) {
+System.out.println("Too low");
+            } else if (guess == rand_num) {
+System.out.println("Perfect, Right guess in " +
+                        count + " trys");
+                break;
+            } else {
+System.out.println("Error");
+            }
+            count++;
+        }
+    }
+}
+```
+
+#### 9 WAP to prints a table of the powers of 2 that are less than or equal to 2^N using  scanner.
+
+```java filename="P3_9.java" copy
+import java.util.Scanner;
+public class P3_9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+System.out.println("Enter value of n: ");
+        int n = sc.nextInt();
+        for (int i = 0; i<= n; i++) {
+System.out.println("2^" + i + " = " + Math.pow(2, i));
+        }
+    }
+}
+```
