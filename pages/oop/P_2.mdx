@@ -1,0 +1,125 @@
+# Practical_2 😶‍🌫️
+
+
+#### 1 WAP to print following massage using command line argument. 
+####  eg. Hi, Bob. How are you? 
+#### Hi, Alice. How are you?
+
+````java filename="P2_1.java" copy
+class P2_1
+{
+public static void main(String args[]){
+String x,y;
+x=args[0];
+y=args[1];
+System.out.println("Hello "+x+", How are you?");
+System.out.println("Hello "+y+", How are you?");
+}
+}
+````
+
+#### 2 WAP to take two numbers as input from command line interface and display their sum. 
+````java filename="P2_2.java" copy
+class P2_2
+{
+public static void main(String args[]){
+int  x,y; 
+x=Integer.parseInt(args[0]);
+y=Integer.parseInt(args[1]);
+int sum=x+y;
+System.out.println("sum= "+sum);
+}
+}
+````
+
+#### 3 WAP to find roots of quadratic equation using command line arguments. 
+````java filename="P2_3.java" copy
+class P2_3{
+public static void main(String args[])
+{
+int a=Integer.parseInt(args[0]);
+int b=Integer.parseInt(args[1]);
+int c=Integer.parseInt(args[2]);
+double D=b*b-4*a*c;
+if(D>0){
+double r1 = (-b + Math.sqrt(D) / (2.0 * a));  
+double r2 = (-b - Math.sqrt(D) / (2.0 * a));  
+System.out.println("The roots are " + r1 + " and " + r2);  
+}
+else if(D==0){
+double r1 = -b / (2.0 * a);  
+System.out.println("The root is " + r1);  
+}
+else{
+System.out.println("Roots are not real.");  
+}        
+}
+}
+````
+#### 4 WAP to find out entered year is leap year or not. 
+````java filename="P2_4.java" copy
+class P2_4{
+public static void main(String args[])
+{
+int year =Integer.parseInt(args[0]);
+if(year%4 == 0 && year%100 == 0 && year%400 == 0){
+System.out.println(year +" is a leap year");
+}
+else{
+System.out.println(" it is not a leap year");
+}
+}
+}
+````
+#### 5 WAP to find factorial of given number using command line arguments. 
+````java filename="P2_.5java" copy
+class P2_5
+{
+public static void main(String args[]){
+int factorial=1;
+int n=Integer.parseInt(args[0]);
+for(int i=1; i<=n; i++){
+factorial = factorial * i; }
+System.out.println("factorial is " +factorial);
+}
+}
+````
+#### 6 WAP to generate fibonacci series up to n numbers using command line arguments. 
+````java filename="P2_6.java" copy
+class P2_6{
+public static void main(String args[]){
+int a=0,b=1;
+int c;
+int n = Integer.parseInt(args[0]);
+for(int i=0;i<n;i++){
+System.out.print(a+" ");
+c=a+b;
+a=b;
+b=c;
+}
+}
+}
+````
+#### 7  WAP to check whether given number is prime or not using command line arguments
+````java filename="P2_7.java" copy
+class P2_7{
+public static void main(String args[]){
+int m=0,i,a=0;
+int n=Integer.parseInt(args[0]);
+m=n/2;
+if(n==0||n==1){
+System.out.println(n+" is not prime number");
+}
+else{
+for(i=2;i<=m;i++){
+if(n%i==0){
+System.out.println(n+"is not prime number");
+a=1;
+break;
+}
+}
+}
+if(a==0){System.out.println(n+"is a prime number");}
+}
+}
+````

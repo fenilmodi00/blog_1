@@ -1,0 +1,115 @@
+# Practical_1 😶‍🌫️
+
+### 1 Write a Java program to print the “Let us learn Java” on the console.
+
+```js filename="P1_1.java"   copy
+class P1_1{
+public static void main(String[] args){
+System.out.println("Let us learn java");
+            }
+          }
+```
+
+### 2 Write a Java program to print the following pattern on the screen.
+
+    ######  ***************************
+    ######     * Let us learn Java *
+    ######  ***************************
+
+```java filename="P1_2.java" copy
+class P1_2
+{
+public static void main (String args[])
+{
+System.out.println("***************************");
+System.out.println("*    Let us learn Java    *");
+System.out.println("***************************");
+}
+}
+```
+
+### 3 Write a Java program to evaluate the following equations.
+
+###### a) C = F-32/1.8
+
+```java filename="P1_3_1.java" copy
+class P1_3_1{
+public static void main (String args[]){
+int F=90;
+double C=F-32/1.8;
+System.out.println(" C = "+C);
+}
+}
+```
+
+###### b) Area = pi. r2 + 2. pi. R. h
+
+```java filename="P1_3_2.java" copy
+class P1_3_2
+{
+public static void main(String args[])
+{
+int r=52,h=75;
+double pi=3.14;
+double  Area = pi* r*r + 2* pi* r* h;
+System.out.println("Area= "+Area);
+}
+}
+```
+
+###### c) Energy = m (a . h + v2 /2)
+
+```java filename="P1_3_3.java" copy
+class P1_3_3
+{
+public static void main(String args[])
+{
+int m=16,a=9,h=50,v=70;
+double  Energy = m *(a*h + v*v/2);
+System.out.println("Energy= "+Energy);
+}
+}
+```
+
+###### d) Side = SQRT( a2 + b2 – 2abcos(x) )
+
+```java filename="P1_3_3.java" copy
+class P1_3_4
+{
+public static void main(String args[])
+{
+int x=55,a=60,b=30;
+double Side = Math.sqrt(a*a+b*b-2*a*b*Math.cos(x));
+System.out.println("Side= " +Side);
+}
+}
+```
+
+###### e) F = √1/LC – r2 /4C2
+
+```java filename="P1_3_4.java" copy
+class P1_3_5
+{
+public static void main(String args[])
+{
+int L=30,C=23,R=47;
+double F = Math.sqrt(1 / L * C)-(R * R)/ (4 * C * C);
+System.out.println("F = " +F);
+}
+}
+```
+
+###### f) T = (2m1m2/m1+m2)\*g
+
+```java filename="P1_3_5.java" copy
+class P1_3_6
+{
+public static void main(String args[])
+{
+int m1=74,m2=95;
+double g=9.8;
+double T = (2*m1*m2/m1+m1);
+System.out.println("T= "+T);
+}
+}
+```
