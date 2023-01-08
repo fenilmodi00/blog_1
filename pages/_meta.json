@@ -7,12 +7,15 @@
     "title": "Frameworks",
     "type": "page"
   },
-  
+
+  "ds": {
+    "title": "Ds",
+    "type": "page"
+  },
   "oop": {
     "title": "OOP",
     "type": "page"
   },
-
 
   "fruits": {
     "title": "Fruits",
