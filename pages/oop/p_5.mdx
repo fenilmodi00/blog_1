@@ -1,0 +1,295 @@
+# Practical_5 😶‍🌫️
+
+#### 1 Create a class named Date having three instance variables named Day, Month and Yearalso has two set_date() to catch values of instance variables and get_date() to display caught values on the output screen. And create another class DateDemo containing main() method.
+
+```java filename="P5_1.java" copy
+import java.util.Scanner;
+public class p5_1 {
+    public static void main(String[] args) {
+        int date,year;
+        String month;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter day: ");
+        date=sc.nextInt();
+        System.out.println("Enter month: ");
+        month=sc.next();
+        System.out.println("Enter year: ");
+        year=sc.nextInt();
+        Date d1=new Date();
+        d1.set_date(date,month,year);
+        d1.get_date();
+    }
+}
+class Date{
+    int day;
+    String month;
+    int year;
+    void set_date(int d,String m,int y)
+    {
+        day=d;
+        month=m;
+        year=y;
+    }
+    void get_date()
+    {
+        System.out.println(day +"/"+month +"/"+year);
+    }
+}
+```
+
+#### 2 Create a class Calculator describing basic arithmetic operations addition, subtraction,multiplication and division. For each operation define separate method to evaluate variables values. For the same class define two additional methods getinfo() for setting values and display() to output calculated values. Also create a new class simple_calc which houses main methods Note: Use switch case to select appropriate operation from main() method.
+
+```java filename="P5_2.java" copy
+
+import java.util.Scanner;
+public class p5_2 {
+    public static void main(String[] args) {
+
+        double num1, num2;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number:");
+        num1 = sc.nextDouble();
+        System.out.print("Enter second number:");
+        num2 = sc.nextDouble();
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = sc.next().charAt(0);
+
+        sc.close();
+        double output;
+        switch (operator) {
+            case '+':
+                output = num1 + num2;
+                break;
+            case '-':
+                output = num1 - num2;
+                break;
+            case '*':
+                output = num1 * num2;
+                break;
+            case '/':
+                output = num1 / num2;
+                break;
+            default:
+                System.out.print("You have entered wrong operator");
+                return;
+        }
+        System.out.println(num1+" "+operator+" "+num2+": "+output);
+    }
+}
+class Calculator{
+    int num1,num2;
+    double result;
+    void get_info(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter value 1: ");
+        num1 = sc.nextInt();
+        System.out.println("Enter value 2: ");
+        num2 = sc.nextInt();
+    }
+    void Display()
+    {
+        System.out.println("result of "+ num1 +" & "+ num2 + "is " + result);
+    }
+}
+```
+
+#### 3 Create a class named Box to find volume of box using method. Box class havinginstance variables named length, width and height must be filled by initialization and get their value from keyboard.
+
+```java filename="P5_3.java" copy
+import java.util.Scanner;
+public class p5_3 {
+   public static void main(String[] args) {
+       Scanner in = new Scanner(System.in);
+       int w, l, h;
+       System.out.println("To find volume of box you need to put hight width and length");
+       System.out.println("Enter the measure of lenght");
+       l = in.nextInt();
+       System.out.println("enter the measure of hight");
+       h = in.nextInt();
+       System.out.println("enter the measure of width");
+       w = in.nextInt();
+       Box b = new Box();
+       b.set_ans(l, h, w);
+       b.get_ans();
+   }
+}
+class Box{
+   int hight;
+   int length;
+   int width;
+   void set_ans(int l, int h, int w)
+   {
+       length = l;
+       hight = h;
+       width = w;
+   }
+   void get_ans()
+   {
+       System.out.println("volume of box is " +length * hight * width + ".");
+   }
+}
+```
+
+#### 4 . Create a Class named Equation having following methods which finds roots quadratic equation:
+
+###### a) Get_info() :- to set instance variable values.b) Real():- to evaluate real roots valuesc) Equal_values():- to evaluate equal values. d) Imaginary():- to calculate imaginary root i.e not possible roots. Create an another class Quadratic residing main() methods which contains finds Delta values and according to result call the appropriate method in Equation Class.
+
+```java filename="P5_4.java" copy
+ import java.util.Scanner;
+public class p5_4 {
+ public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int a, b, c;
+        double d;
+        System.out.println("Write value of a to find root:-");
+        a = in.nextInt();
+        System.out.println("Write value of b to find root:-");
+        b = in.nextInt();
+        System.out.println("Write value of c to find root:-");
+        c = in.nextInt();
+        d = (b * b) - 4 * a * c;
+        roots r =new roots();
+        r.find(d,a,b,c);
+    }
+}
+class roots {
+    double d;
+    int a,b,c;
+    void find(double d,int a,int b,int c)
+    {
+        double r1,r2 = 0;
+        if(d > 0)
+        {
+            System.out.println("Roots are real & different");
+            r1 =(-b + Math.sqrt(d))/(2*a*c);
+            r1 =(-b - Math.sqrt(d))/(2*a*c);
+            System.out.println("Root 1: "+ r1 + " & Root 2 : "+ r2);
+        }
+        else if(d < 0)
+        {            double rh1,rh2,rh3,rh4;
+            System.out.println("roots are Distinct & imaginary");
+            rh1 =(-b/(2*a));
+            rh2 = (Math.sqrt(-d)/(2*a));
+            rh3 = (-b/(2*a));
+            rh4 = (Math.sqrt(-d)/(2*a));
+            System.out.println("Root 1: "+ rh1 + " i "+ rh2 + " & Root 2: "+rh3 + " - i "+ rh4);
+        }
+        else{
+            r1 = -b/(2*a);
+            System.out.println("roots are Real and Same ");
+            System.out.println("Root 1 =Root 2 : " + r1);
+        }
+    }
+}
+```
+
+#### 5 Create a class Student having instance variables rollno, age, height, weight and contact for student and also has two methods set_info() and get_info() to set and get instance variable values respectively. A main() method resides in student_info class which sets and gets info for 5 students. a) Use parameterized constructor to initialize instance variable values.
+
+```java filename="P5_5.java" copy
+import java.util.Scanner;
+public class p5_5 {
+ public static void main(String[] args) {
+        int Rn,A,We,Cno;
+        double He;
+        Scanner sc=new Scanner(System.in);
+        student[] s =new student[5];
+        for(int i=0;i<5;i++) {
+            System.out.println("Enter information for student "+(i+1));
+            System.out.println("Enter Roll no.:- ");
+            Rn=sc.nextInt();
+            System.out.println("Enter AGE:- ");
+            A=sc.nextInt();
+            System.out.println("Enter Height:- ");
+            He=sc.nextDouble();
+            System.out.println("Enter weight:- ");
+            We=sc.nextInt();
+            System.out.println("Enter contact No.:- ");
+            Cno=sc.nextInt();
+            s[i]=new student(Rn,A,He,We,Cno);
+        }
+        for(int j=0;j<5;j++)  {
+            System.out.println("information of student "+(j+1));
+            s[j].get_info();
+        }
+    }
+}
+class student{
+    int Rollno,AGE,Weight,contactno;
+    double Height;
+    student(int Rn,int A,double He,int We,int Cno) {
+        Rollno=Rn;
+        AGE=A;
+        Height=He;
+        Weight=We;
+        contactno=Cno;
+    }
+    void get_info()   {
+        System.out.println("Rollno= "+Rollno+"\nAGE= "+AGE +"\nHeight= "+Height +"\nWeight= "+Weight +"\ncontactno= "+contactno +"\n");
+    }
+}
+```
+
+#### 6 Create a class Exam having stu_name, rollno, sub_code, sub_name, InternalMarks and ExternalMarks also contains two methods Calculate_result() and Show_result(). Students having marks to be shown in ouput with his name and roll_no. A main() method is contained by Exam_demo class.
+
+##### a) Use parameterized constructor with local variable named as instance variables which hides them.
+
+##### b) Use this pointer to prevent instance variable to be overhidden. Note: Use your additional variables as per your needs.
+
+```java filename="P5_6 .java" copy
+import java.util.Scanner;
+public class p5_6 {
+        public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int rn;
+        String sn;
+        int[] suc =new int[3];
+        int[] im =new int[3];
+        int[] em =new int[3];
+        String[] sun =new String[3];
+        System.out.println("Enter Roll no.:- ");
+        rn=sc.nextInt();
+        System.out.println("Enter name:- ");
+        sn=sc.next();
+        for(int i=0;i<3;i++)
+        {
+            System.out.println("Enter sub name,code with internal and external marks:- ");
+            sun[i]=sc.next();
+            suc[i]=sc.nextInt();
+            im[i]=sc.nextInt();
+            em[i]=sc.nextInt();
+        }
+        Exam e = new Exam(sn,rn,sun,suc,im,em);
+        int t=e.calculate_result();
+        e.show_result(t);
+        }
+    }
+class Exam
+{
+    String stu_name;
+    String[] sub_name =new String[3];
+    int rollno;
+    int[] sub_code =new int[3];
+    int[] internalmarks =new int[3];
+    int[] externalmarks =new int[3];
+    Exam(String stu_name, int rollno, String[] sub_name, int[] sub_code, int[] internalmarks, int[] externalmarks)
+    {
+        this.stu_name=stu_name;
+        this.rollno=rollno;
+        this.sub_name=sub_name;
+        this.externalmarks=externalmarks;
+        this.internalmarks=internalmarks;
+        this.sub_code=sub_code;
+    }
+    int calculate_result() {
+        int total = 0;
+        for (int i = 0; i < 3; i++) {
+            total = total + (internalmarks[i] + externalmarks[i]);
+        }
+        return total;
+    }
+    void show_result(int t) {
+        System.out.println("Rollno : "+ rollno+" "+stu_name + " have "+ t +"marks");
+    }
+}
+```
