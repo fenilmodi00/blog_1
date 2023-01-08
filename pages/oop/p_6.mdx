@@ -1,0 +1,221 @@
+# Practical_6 😶‍🌫️
+
+#### 1 Write an application that defines a circle class with two constructors. The first form  accepts double values as a radius of the circle. This constructor assumes that the circle is  centered at the origin. The second form accepts one double value for radius and two  integer values for coordinates of the center.  
+
+```java filename="P6_1.java" copy
+package p6_1;
+import java.util.Scanner;
+public class p6_1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double r1,r2;
+        int x1,y1;
+        System.out.println("Enter radius of first circle:-");
+        r1=sc.nextDouble();
+        System.out.println("Enter radius of second circle:-");
+        r2=sc.nextDouble();
+        System.out.println("Enter the value of center of cords of x1 and y1:-");
+        x1=sc.nextInt();
+        y1=sc.nextInt();
+        p6_1 c1=new p6_1(r1);
+        p6_1 c2=new p6_1(r2,x1,y1);
+    }
+p6_1(double r1)
+{
+    r1=r1*r1;
+    System.out.println("X^2+Y^2="+r1);
+}
+p6_1(double r2,int x1,int y1)
+{
+    r2=r2*r2;
+        System.out.println("(X-"+x1+")^2 +(Y-"+y1+")^2="+r2);
+    }
+
+}
+```
+
+#### 2 Write a program to find interest of an amount given by a bank. This program code uses  function overloading to find interest having two different forms. The first form accepts  amount and percentage of interest and the second form accepts amount and percantage  two values as parameters additionally with number of year as a parameter. 
+
+```java filename="P6_2.java" copy
+import java.util.Scanner;
+public class p6_2 {
+    public static void main(String[]args)
+    {
+    Scanner sc = new Scanner(System.in);
+    int A,Y;//Amount=A,year=y
+    double I,Total = 0,rate = 0;//Interest=i
+    System.out.println("Enter Amount:-");
+    A=sc.nextInt();
+    System.out.println("Enter years:-");
+    Y=sc.nextInt();
+    System.out.println("Enter how much interest given by bank:-");
+    I=sc.nextDouble();
+    p6_2  t1=new p6_2(A,I,Total);
+    p6_2  t2=new p6_2(I,Y,A,rate);
+    }
+p6_2(int A,double I,double Total)
+{
+    Total=A+I*100;
+    System.out.println("Total of Amout And interest:-"+Total);
+}
+p6_2(double I,int Y,int A,double rate)
+{
+    rate=A*I*Y/100+A;
+    System.out.println("Total rate of After year is add:-"+rate);
+}
+}
+```
+
+#### 3 Write a program to find area of different shapes using function overloading like as  rectangle, triangle, sphere passing different arguments to overloaded method Area(). 
+
+```java filename="P6_3.java" copy
+
+import java.util.Scanner;
+public class P6_3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int b,h,r;
+        double  w,l,pi=3.14;
+        System.out.println("Enter width:-");
+        w=sc.nextDouble();
+        System.out.println("Enter length:-");
+        l=sc.nextDouble();
+        System.out.println("Enter height:-");
+        h=sc.nextInt();
+        System.out.println("Enter base:-");
+        b=sc.nextInt();
+        System.out.println("Enter radius:-");
+        r=sc.nextInt();
+        P6_3 a= new P6_3(w,l);
+        P6_3 t= new P6_3(h,b);
+        P6_3 s = new P6_3(r,pi);
+    }
+P6_3(double w,double l)
+{
+    double R;
+    //Area of Rectangle
+        R= w*l;
+    System.out.println("Area of rectangle:-"+R);
+}
+P6_3(int h,int b)
+{
+    double T;
+    T=h*b/2;
+    System.out.println("Area of triangle:-"+T);
+
+}
+P6_3(int r,double pi)
+{
+    double S;
+    S=4*pi*r*r;
+    System.out.println("Area of triangle:-"+S);
+}
+}
+```
+
+#### 4 Write a Java program to using function overloading method to read set of integers and  floating point numbers separately and to store it in the corresponding arrays. Again read  a number from the keyboard and check whether the number ‘d’ is present in the arrays.  If it is so, print out how many times the number ‘d’ is repeated in the array. 
+
+```java filename="P6_4.java" copy
+import java.util.Scanner;
+public class P6_4 {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter element in integer array:- ");
+        int intarr[] = new int[5];
+        for(int i=0;i<5;i++) {
+            System.out.println("Elements["+i+"] :-");
+            intarr[i] = sc.nextInt();
+        }
+        System.out.println("Enter element in float array:-");
+        float floatarr[] = new float[5];
+        for(int i=0;i<5;i++) {
+            System.out.println("Elements["+i+"] :-");
+            floatarr[i] = sc.nextFloat();
+        }
+        System.out.println("Which element you want to search in integer array:-");
+        int srchint = sc.nextInt();
+        System.out.println("Which element you want to search in float array :-");
+        float srchfloat = sc.nextFloat();
+        array a1 = new array(intarr, srchint);
+        array a2 = new array(floatarr, srchfloat);
+    }
+}
+class array {
+    array(int[] arr,int srch) {
+        int count=0;
+        int[] intarr = arr;
+        for(int i=0 ; i<5;i++) {
+            System.out.println(intarr[i]);
+            if(srch == intarr[i]) {
+                count ++;
+            }
+        }
+        System.out.println("\nSearching element "+srch+" is in integer array "+count+" times.");
+    }
+    array(float[] arr,float srch) {
+        int count=0;
+        float[] floatarr = arr;
+        for(int i=0 ; i<5 ;i++) {
+            System.out.println(floatarr[i]);
+            if(srch == floatarr[i]) {
+                count ++;
+            }
+        }
+        System.out.println("\nSearching element "+srch+" is in float array "+count+" times.");
+    }
+}
+```
+
+#### 5 Create a class Home which has instance variables likes typeofhome, colour, rooms and  NoOfStoreis. Using constructor overloading find which two out of four homes are  similar. A SampleHome class contains main() method and it also creates four homes of  Home class.  
+
+```java filename="P6_5.java" copy
+public class Samplehome {
+    public static void main(String[] args) {
+        home h1=new home("bunglow","green",3,4);
+        home h2=new home("bunglow","green",3,4);
+        home h3=new home("bunglow","green",3);
+        home h4=new home("bunglow","green",3);
+        System.out.println("Comparing home1 and home2:-");
+        h1.compare(h2);
+        System.out.println("Comparing home1 and home3:-");
+        h1.compare(h3);
+        System.out.println("Comparing home1 and home4:-");
+        h1.compare(h4);
+        System.out.println("Comparing home2 and home3:-");
+        h2.compare(h3);
+        System.out.println("Comparing home2 and home4:-");
+        h2.compare(h4);
+        System.out.println("Comparing home3 and home4:-");
+        h3.compare(h4);
+    }
+}
+class home{
+        String Typeofhome,color;
+        int floor,rooms;
+        home(String Toh,String c,int f,int r)
+        {
+            Typeofhome=Toh;
+            color=c;
+            floor=f;
+            rooms=r;
+        }
+        home(String Toh,String c,int r)
+        {
+              Typeofhome=Toh;
+            color=c;
+            rooms=r;
+        }
+        void compare(home h1)
+        {
+        if(Typeofhome==h1.Typeofhome   &&   color==h1.color   &&   rooms==h1.rooms   &&   floor==h1.floor)
+        {
+                System.out.println("Both homes are same");
+        }
+        else
+        {
+                System.out.println("Both homes are not same");
+        }
+    }
+}
+```

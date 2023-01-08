@@ -1,0 +1,120 @@
+# Practical_5 😶‍🌫️
+
+#### 1 Write a program to catch ArithmeticException such as division by zero.
+
+```java filename="P8_1.java" copy
+import java.util.Scanner;
+public class P8_1
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Withrawal amount : "); double w_amt = sc.nextDouble();
+        try {
+                    checkAmount(w_amt);
+              }
+        catch (ArithmeticException ae)
+        {
+            System.out.println(ae.getMessage());
+        }
+}
+    static void checkAmount(double amt)
+    {
+        if(amt > 25000)
+        throw new ArithmeticException("Withraw limit exceed !!!");
+        else
+        System.out.println("\nPlz wait Withraw amount is processed.");
+    }
+}
+```
+
+#### 2 ⦁ Write a program to catch multiple exceptions such as ArrayIndexOutOfBounds Exception, NumberFormatException, NullPointerException and also use finally block.
+
+```java filename="P8_2.java" copy
+public class P8_2
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            demo();
+        }
+        catch (NullPointerException ne)
+        {
+            System.out.println(ne.getMessage());
+        }
+    }
+    static void demo()
+    {
+        try
+        {
+                throw new NullPointerException("It represent demo of throw!");
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("Caught inside demo().");
+            throw e;
+        }
+    }
+}
+```
+
+#### 3 Write a program to throw your own exception by extending the Exception class.
+
+```java filename="P8_3.java" copy
+public class P8_3
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+                    throw new newException("Exception Fired!!");
+        }
+        catch (newException ne)
+        {
+            System.out.println("It's Exception!!");
+            System.out.println(ne.getMessage());
+        }
+    }
+}
+class newException extends Exception
+{
+    public newException(String s)
+    {
+        super(s);
+    }
+}
+```
+
+#### 4 Write a program that shows the use of throws keyword.
+
+```java filename="P8_4.java" copy
+public class P8_4
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            check(1600);
+        }
+        catch (newException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void check(int year) throws newException
+    {
+        if((year%4) == 0 && ((year%400) == 0 || (year%100 != 0)))
+            System.out.println("YES , thisn is leap year.");
+        else
+            throw new newException("NO , This is leap year.");
+    }
+}
+class newException extends Exception
+{
+    public newException(String s)
+    {
+        super(s);
+    }
+}
+```

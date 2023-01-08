@@ -1,0 +1,225 @@
+# Practical_9 😶‍🌫️
+
+#### 1 Create a package mypack which contains classes A,B and C.. Classes A,B and C contains method showa(),showb(),showc() respectively. Each method has one print statement like “ I am from class A”, if method is showa().Create another class mymain which reside outside of mypack package and importing this package.mymain has main method
+
+```java filename="P9_1.java"{1,11,20,29, }    copy
+// For class A :
+package mypack;
+public class A
+{
+    public void show_A()
+    {
+        System.out.println("I am class of A");
+    }
+}
+
+// For class B :
+package mypack;
+public class B
+{
+    public void show_B()
+    {
+        System.out.println("I am class of B");
+    }
+}
+// For class C :
+package mypack;
+public class C
+{
+    public void show_C()
+    {
+        System.out.println("I am class of C");
+    }
+}
+// For main class :
+package mymain;
+import mypack.*;
+public class mymain {
+    public static void main(String[] args)
+    {
+        A a=new A();
+        a.show_A();
+        B b=new B();
+        b.show_B();
+        C c=new C();
+        c.show_C();
+    }
+}
+```
+
+#### 2 ⦁ Create a package calculator which contains operation class, describing basic arithmetic operations addition, subtraction, multiplication and division. For each operation define separate method to evaluate variables values. For the same class define two additional methods getinfo() for setting values and display() to output calculated values. create a new class simple_calc which reside out of calculator package and importing calculator package. Simple_calc has main method.
+
+```java filename="P9_2.java" {1,18,35,52,71} copy
+// For class addition :
+package calculator;
+import java.util.Scanner;
+public class add
+{
+    Scanner sc =new Scanner(System.in);
+    public void obj()
+    {
+        int ans,a,b;
+        System.out.println("Enter val of a:-");
+        a=sc.nextInt();
+        System.out.println("Enter val of b:-");
+        b=sc.nextInt();
+        ans = a + b;
+        System.out.println("Addition:-" + ans);
+    }
+}
+// For class substraction :
+package calculator;
+import java.util.Scanner;
+public class sub
+{
+    Scanner sc =new Scanner(System.in);
+    public void obj()
+    {
+        int ans,a,b;
+        System.out.println("Enter val of a:-");
+        a=sc.nextInt();
+        System.out.println("Enter val of b:-");
+        b=sc.nextInt();
+        ans = a - b;
+        System.out.println("Subtractio:-" + ans);
+    }
+}
+// For class multiplication :
+package calculator;
+import java.util.Scanner;
+public class mul
+{
+    Scanner sc =new Scanner(System.in);
+    public void obj()
+    {
+        int ans,a,b;
+        System.out.println("Enter val of a:-");
+        a=sc.nextInt();
+        System.out.println("Enter val of b:-");
+        b=sc.nextInt();
+        ans = a*b;
+        System.out.println("Multiplication:-" + ans);
+    }
+}
+// For class division :
+package calculator;
+import java.util.Scanner;
+public class div
+{
+    Scanner sc =new Scanner(System.in);
+    public void obj()
+    {
+        int ans,a,b;
+        System.out.println("Enter val of a:-");
+        a=sc.nextInt();
+        System.out.println("Enter val of b:-");
+        b=sc.nextInt();
+        ans = a/b;
+        System.out.println("Division:-"+ans);
+    }
+}
+// For main class :
+package simple_calcu;
+import calculator.*;
+public class Simple_calcu {
+    public static void main(String[] args)
+    {
+        add a=new add();
+        a.obj();
+        sub s=new sub();
+        s.obj();
+        mul m=new mul();
+        m.obj();
+        div d=new div();
+        d.obj();
+    }
+}
+```
+
+#### 3 Write program to create two threads .One using Thread class and another using Runnable Interface.
+
+```java filename="P9_3.java" copy
+public class P9_3 {
+    public static void main(String[] args) {
+        th1 t1 = new th1();
+        th2 t2 = new th2();
+        Thread t = new Thread(t2);
+        t1.start();
+        t.start();
+    }
+}
+class th1 extends Thread{
+    public void run()
+    {
+        for(int i=1;i<=5;i++)
+        {
+            System.out.println("Thread 1"+i);
+        }
+        try
+        {
+            Thread.sleep(500);
+        }
+        catch (InterruptedException ex)
+        {
+            System.out.println("Thread Interrupted");
+         }
+    }
+}
+class th2 implements Runnable
+{
+    public void run()
+    {
+        for(int i=1;i<=5;i++)
+        {
+            System.out.println("Thread 2"+i);
+        }
+        try
+        {
+                Thread.sleep(5000);
+         }
+        catch (InterruptedException ex)
+        {
+            System.out.println("Thread Interrupted");
+         }
+    }
+}
+```
+
+#### 4 ⦁ Write program to create two threads .One thread prints table of 300 and another thread prints table of 500.
+
+```java filename="P9_4.java" copy
+public class P9_4
+{
+    public static void main(String[] args)
+    {
+        main1 a = new main1();
+        main2 b = new main2();
+        Thread t = new Thread(b);
+        a.run();
+        b.run();
+    }
+}
+class main1 extends Thread
+{
+    public void run()
+    {
+        int i;
+
+        for(i=1;i<=10;i++)
+        {
+            System.out.println(" 300 x "+i+" = "+300*i);
+         }
+    }
+}
+class main2 extends Thread
+{
+    public void run()
+    {
+        int i;
+        for(i=1;i<=10;i++)
+        {
+                System.out.println(" 500 x "+i+" = "+500*i);
+        }
+    }
+}
+```

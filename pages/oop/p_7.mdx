@@ -1,0 +1,372 @@
+# Practical\_ 6😶‍🌫️
+
+#### 1 Create a class Room which has two instance variables length and breadth and a method called area() to find area of Room. Create another class BedRoom which inherit Room class and has an instance variable height and a method volume() to find volume in BedRoom. Use necessary constructors in both class. A main() method resides in another class.
+
+```java filename="P7_1.java" copy
+import java.util.Scanner;
+public class P7_1 {
+    public static void main(String[] args)
+    {
+                Scanner sc = new Scanner(System.in);
+                int l, b, h;
+                System.out.println("Enter val of  Length:-");
+                l = sc.nextInt();
+                System.out.println("Enter val of breath:-");
+               b = sc.nextInt();
+               System.out.println("Enter val of height:-");
+               h = sc.nextInt();
+
+              bedRoom b1 = new bedRoom(l,b,h);
+              b1.area();
+              b1.volume();
+    }
+}
+class room
+{
+        int length, breadth;
+        room(int l, int b)
+        {
+            length = l;
+            breadth= b;
+        }
+        void area()
+        {
+                int ans = length*breadth;
+                System.out.println("Area of room is : "+ ans);
+        }
+}
+class bedRoom extends room
+{
+          int height;
+          public bedRoom(int l, int b, int h)
+          {
+                     super(l, b);
+                     height = h;
+           }
+           void volume()
+           {
+                     int ans = length*breadth*height;
+                     System.out.println("Volume of bedroom : "+ ans);
+           }
+}
+```
+
+#### 2 . A super class Worker has been defined to store the details of a worker. Define a sub
+
+##### class Wages to compute the monthly wages for the worker. The details of both the
+
+##### classes are given below:
+
+##### Class name : Worker
+
+##### Data members :
+
+##### Name : to store the name of the worker
+
+##### Basic : to store the basic pay in decimal
+
+##### Member Methods:
+
+##### Worker(....) : parameterized constructor to assign values to the instance variables
+
+##### void display() : display worker details
+
+##### class name : Wages
+
+##### Data members
+
+##### hrs : stores the hours worked
+
+##### rate : stores rate per hour
+
+##### wage : stores the overall wage of the worker
+
+##### Member Methods:
+
+##### Wages(....) : parameterized constructor to assign values to the instance variables of both classes
+
+```java filename="P7_2.java" copy
+import java.util.Scanner;
+public class P7_2 {
+    public static void main(String[] args)
+    {
+        String n;
+        double b_pay,h,r;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a name : ");
+        n = sc.nextLine();
+        System.out.println("Enter a Basic pay : ");
+        b_pay = sc.nextDouble();
+        System.out.println("Enter a Hours : ");
+        h = sc.nextDouble();
+        System.out.println("Enter a Rate : ");
+        r = sc.nextDouble();
+        wages w1 = new wages(n, b_pay, h, r);
+        w1.display();
+    }
+}
+class worker
+{
+            String name;
+            double basic_pay;
+
+            worker(String n, double b_pay)
+            {
+                    name = n;
+                    basic_pay = b_pay;
+            }
+            void display()
+            {
+                    System.out.println("\n[----Workers Details----]\n");
+                    System.out.println(" Name : "+ name +"\n Basic Pay : "+basic_pay);
+            }
+}
+class wages extends worker
+{
+        double hour,rate,wage;
+
+        wages(String n, double b_pay, double h,double r)
+        {
+                    super(n, b_pay);
+                    hour = h;
+                    rate = r;
+                    wage = overtime();
+        }
+        double overtime()
+        {
+                    return hour*rate;
+        }
+        void display()
+        {
+            super.display();
+            System.out.println(" overtime amount : "+wage+"\n Total amount is: "+ (wage + basic_pay));
+        }
+}
+```
+
+#### 3 Create abstract class called Shape which has three sub classes say Triangle, Rectangle, and Circle. Define one method area() in abstract class and override this area() in these three subclasses to calculate area for specific object i.e. area() of Triangle subclass should calculate area of triangle. Same for rectangle, circle.
+
+```java filename="P7_3.java" copy
+import java.util.Scanner;
+public class P7_3 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner (System.in);
+        int l,b;
+        double r;
+        System.out.println("Enter the length and breath of triangle:- ");
+        l=sc.nextInt();
+        b=sc.nextInt();
+        triangle t=new triangle();
+        t.get_info(l,b);
+        t.area();
+        System.out.println("Enter the length and breath of rectangle:-");
+        l=sc.nextInt();
+        b=sc.nextInt();
+        rectangle R=new rectangle();
+        R.get_info(l,b);
+        R.area();
+        System.out.println("Enter the radius of circle:");
+        r = sc.nextDouble();
+        circle c = new circle();
+        c.get_info(r);
+        c.area();
+    }
+}
+abstract class shape{
+    int length,breath;
+    double radius;
+    abstract void area();
+}
+class triangle extends shape{
+    void get_info(int l,int b)
+    {
+        length=l;
+        breath=b;
+    }
+    void area()
+    {
+        double area =0.5*length*breath;
+        System.out.println("Area of triangle:-"+area);
+    }
+}
+class rectangle extends shape{
+    void get_info(int l,int b)
+    {
+        length=l;
+        breath=b;
+    }
+    void area()
+    {
+        int area =length*breath;
+        System.out.println("Area of rectangle:-"+area);
+    }
+}
+class circle extends shape{
+    void get_info(double r)
+    {
+        radius=r;
+    }
+    @Override
+    void area()
+    {
+        double area =2*3.14*radius*radius;
+        System.out.println("Area of circle:-"+area);
+    }
+}
+```
+
+#### 4 Write a program to implement Multiple inheritance using interface.
+
+```java filename="P7_4.java" copy
+interface Printable
+{
+    void print();
+}
+interface Showable
+{
+    void show();
+}
+class p7_4 implements Printable, Showable
+{
+        public void print()
+        {
+            System.out.println("Hello");
+        }
+        public void show()
+        {
+            System.out.println("Welcome");
+        }
+        public static void main(String[] args)
+        {
+            p7_4 obj = new p7_4();
+            obj.print();
+            obj.show();
+        }
+}
+```
+
+#### 5 .Write a program to create interface shape containing area() method. Now create Rectangle, Triangle, Sphere class that implements shape interface and override area() to calculate area of rectangle ,triangle and sphere.
+
+```java filename="P7_5.java" copy
+import java.util.Scanner;
+public class P7_5
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        Rectangle r = new Rectangle();
+        Triangle t = new Triangle();
+        Sphere s = new Sphere();
+        System.out.println("Enter length & breath of Rectangle : ");
+        int rlen = sc.nextInt();
+        int rbre = sc.nextInt();
+        System.out.println("Enter height & base of Triangle : ");
+        int thei = sc.nextInt();
+        int tbas = sc.nextInt();
+        System.out.println("Enter radius of Sphere : ");
+        int srad = sc.nextInt();
+        r.get_info(rlen, rbre);
+        r.area();
+        t.get_info(thei, tbas);
+        t.area();
+        s.get_info(srad);
+        s.area();
+    }
+}
+interface shape
+{
+    abstract void area();
+}
+class Rectangle implements shape
+{
+    int length;
+    int breath;
+    void get_info(int len, int bre)
+    {
+        length = len;
+        breath = bre;
+    }
+    public void area()
+    {
+        System.out.println("Area of Rectangle is : "+ (length*breath));
+    }
+}
+class Triangle implements shape
+{
+    int height;
+    int base;
+    void get_info(int thei, int tbas)
+    {
+        height = thei;
+        base = tbas;
+    }
+    public void area()
+    {
+        System.out.println("Area of Triangle is : "+ (0.5*height*base));
+    }
+}
+class Sphere implements shape
+{
+    int radius;
+    double pi = 3.14;
+    void get_info(int srad)
+    {
+        radius = srad;
+    }
+    public void area()
+    {
+        System.out.println("Area of Sphere is : "+ (4*pi*radius*radius));
+    }
+}
+```
+
+#### 6 Write a program to implement following scenario
+
+```java filename="P7_6.java" copy
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner sc =new Scanner(System.in); e obj = new e();
+        obj.m1();
+        obj.m2();
+        obj.m3();
+        obj.m4();
+    }
+}
+interface a
+{
+    abstract void m1();
+}
+interface b
+{
+    abstract void m2();
+}
+interface c extends a,b
+{
+    abstract void m3();
+}
+class d
+{
+    void m4()
+    {
+        System.out.println("This method is from class 'd'.");
+    }
+}
+class e extends d implements c
+{
+    public void m1()
+    {
+        System.out.println("This method is from interface 'a'.");
+    }
+    public void m2()
+    {
+        System.out.println("This method is from interface 'b'.");
+    }
+    public void m3()
+    {
+        System.out.println("This method is from interface 'c'.");
+    }
+}
+```

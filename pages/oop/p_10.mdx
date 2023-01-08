@@ -1,0 +1,143 @@
+# Applet in java 😶‍🌫️
+
+#### 1 ⦁ Write an applet to print Hello Java.
+
+```java filename="P10_1.java" {13} copy
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class P10_1 extends Applet
+{
+	public void paint(Graphics g)
+	{
+		g.drawString("Hello Java", 150, 150);
+	}
+}
+
+
+HTML CODE:-
+
+
+<html>
+<body>
+<applet code="P10_1.class" width="300" height="300">
+</applet>
+</body>
+</html>
+```
+
+#### 2 Write an applet to print following shape.
+
+```java filename="P10_2.java"{21} copy
+import java.applet.Applet;
+import java.awt.*;
+
+public class P10_2 extends Applet
+{
+	public void paint(Graphics g)
+	{
+		g.setColor(Color.BLUE);
+		g.drawRect(50,50,200,150);
+		g.fillRect(50,50,200,150);
+		g.setColor(Color.RED);
+		g.drawRect(75,75,150,100);
+		g.fillRect(75,75,150,100);
+		g.setColor(Color.YELLOW);
+		g.drawRect(100,100,100,50);
+		g.fillRect(100,100,100,50);
+	}
+}
+
+
+HTML:-
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<applet code="P10_2.class" width=300 height=300></applet>
+</body>
+</html>
+
+```
+
+#### 3 .Write an applet to show message on status bar.
+
+```java filename="P10_3.java" {12} copy
+import java.applet.Applet; import java.awt.*;
+public class P10_3 extends Applet
+{
+
+public void paint()
+{
+showStatus("welcome page here");
+}
+}
+
+
+HTML CODE:-
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<applet code="ten_3.class" width=400 height=200></applet>
+</body>
+</html>
+```
+
+#### 4 .Write an applet that fetch two parameters “num1” and “num2” passed from HTML file and perform addition of those two parameters
+
+```java filename="P10_4.java" copy
+import  java.io.BufferedReader;
+import  java.io.FileNotFoundException; import  java.io.FileReader;
+import  java.io.IOException;
+
+public class P10_4 {
+public  static  void  main(String  args[])  { BufferedReader  br  =  null;
+String  strLine  =  ""; try {
+br  =  new  BufferedReader(new  FileReader("test.txt")); while  ((strLine  =  br.readLine())  !=  null)  {
+System.out.println(strLine);
+}
+br.close();
+}  catch  (FileNotFoundException  e)  { System.err.println("File  not  found");
+}  catch  (IOException  e)  { System.err.println("Unable  to  read  the  file");
+}
+}
+}
+```
+
+#### 5 Write a Java program to write and read a plain text file.
+
+```java filename="P10_5.java" copy
+import  java.io.FileReader;
+import  java.io.FileWriter;
+
+public class P10_5
+{
+	public  static  void  main(String  a[])
+	{
+		StringBuilder  sb  =  new  StringBuilder();
+		String  strLine  =  "";
+		try
+		{
+			String  filename  =  "myfile.txt";
+			FileWriter  fw  =  new  FileWriter(filename,  false);
+			fw.write("This  is  Java\n"); fw.close();
+			BufferedReader  br  =  new  BufferedReader(new FileReader("myfile.txt"));
+			while  (strLine  !=  null)
+			{
+				sb.append(strLine);
+				sb.append(System.lineSeparator());
+				strLine  =  br.readLine();
+				System.out.println(strLine);
+			}
+			br.close();
+		}
+		catch  (IOException  ioe)
+		{
+			System.err.println("IOException:  "  +  ioe.getMessage());
+		}
+	}
+}
+```
